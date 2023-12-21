@@ -1,6 +1,6 @@
 var LUCKYWHEEL = LUCKYWHEEL || {};
 var previousAlpha = 0;
-var isPercentage = true;
+var isPercentage = false;
 var deg = 0;
 var prizes = [
   {
@@ -38,9 +38,21 @@ var prizes = [
 
 $(document).ready(function () {
   LUCKYWHEEL.pageActive();
+  LUCKYWHEEL.getUIMobile();
+  LUCKYWHEEL.clickSideBar();
   LUCKYWHEEL.startGame();
 });
 
+LUCKYWHEEL.clickSideBar = () => {
+  $("#btn-bar").on("click", function () {
+    $(".nav-bar").hide();
+    $(".nav").css("display", "flex");
+  });
+  $("section .container").on("click", function () {
+    $(".nav-bar").show();
+    $(".nav").hide();
+  });
+};
 // func play game
 LUCKYWHEEL.playGame = () => {
   //lấy đối tượng play game
@@ -51,9 +63,30 @@ LUCKYWHEEL.playGame = () => {
   });
 };
 
+//
+LUCKYWHEEL.getUIMobile = () => {
+  $(window).on("load resize", function () {
+    if ($(window).width() <= 600) {
+      var startGame = $(".start_game");
+      $(".rotation-lucky").css("display", "none");
+      startGame.on("click", function () {
+        $(".image-mobile").css("display", "none");
+        $("section .container").css({
+          border: "1px solid rgb(243, 235, 235)",
+        });
+      });
+    }
+  });
+};
+
+//funs nhấn nút start game
 LUCKYWHEEL.startGame = () => {
   var startGame = $(".start_game");
   startGame.on("click", function () {
+    $(".image-mobile").css("display", "none");
+    $("section .container").css({
+      border: "1px solid rgb(243, 235, 235)",
+    });
     LUCKYWHEEL.countTimePlay();
   });
 };
@@ -94,6 +127,12 @@ LUCKYWHEEL.getResultRandom = () => {
   exit_model.on("click", function () {
     model.css("display", "none");
   });
+  model.on("click", function () {
+    model.css("display", "none");
+  });
+  $(".model-container").on("click", function (event) {
+    event.stopPropagation();
+  });
 };
 
 // hiện thị giá trị của quà lên popup
@@ -125,23 +164,51 @@ LUCKYWHEEL.getPrizeRandom = (randomIndex) => {
 //func css
 LUCKYWHEEL.styleFontItem = (randomIndex) => {
   var model_content = $(".content_model");
-  if (randomIndex == 2) {
-    model_content.css("font-size", "3em");
-  } else if (randomIndex == 1) {
-    if (model_content.html() != null) {
-      model_content.html("");
+  var prize = prizes[randomIndex];
+  var item = Math.floor(Math.random() * prize.items.length);
+  if ($(window).width() >= 600) {
+    if (randomIndex == 2) {
+      model_content.css("font-size", "3em");
+      model_content.css("top", "40%");
+    } else if (randomIndex == 1) {
+      if (model_content.html() != null) {
+        model_content.html("");
+      }
+      model_content.append(
+        ' <img class="img_gift" src="/assets/image/icon_gift.png" alt="Gift Image" />'
+      );
+      model_content.append(`<p class="gift_content">${prize.items[item]}</p>`);
+      $(".img_gift").css("width", "90px");
+      $(".img_gift").css("transform", "translateY(-5px)");
+      $(".gift_content").css("font-size", "25px");
+      $(".gift_content").css("transform", "translateY(-50px)");
+      model_content.css("font-size", "6.5em");
+    } else {
+      model_content.css("top", "32%");
+      model_content.css("font-size", "6.5em");
     }
-    model_content.append(
-      ' <img class="img_gift" src="/assets/image/icon_gift.png" alt="Gift Image" />'
-    );
-    model_content.append(`<p class="gift_content">${gifts[randomgGifts]}</p>`);
-    $(".img_gift").css("width", "90px");
-    $(".img_gift").css("transform", "translateY(-15px)");
-    $(".gift_content").css("font-size", "25px");
-    $(".gift_content").css("transform", "translateY(-35px)");
-    model_content.css("font-size", "6.5em");
   } else {
-    model_content.css("font-size", "6.5em");
+    if (randomIndex == 2) {
+      model_content.css("font-size", "2em");
+      model_content.css("top", "40%");
+    } else if (randomIndex == 1) {
+      if (model_content.html() != null) {
+        model_content.html("");
+      }
+      model_content.append(
+        ' <img class="img_gift" src="/assets/image/icon_gift.png" alt="Gift Image" />'
+      );
+      model_content.append(`<p class="gift_content">${prize.items[item]}</p>`);
+      $(".img_gift").css("width", "80px");
+      $(".img_gift").css("transform", "translateY(-20px)");
+      $(".gift_content").css("font-size", "20px");
+      $(".gift_content").css("transform", "translateY(-70px)");
+      model_content.css("top", "25%");
+      model_content.css("font-size", "6.5em");
+    } else {
+      model_content.css("top", "25%");
+      model_content.css("font-size", "6.5em");
+    }
   }
 };
 
@@ -231,7 +298,7 @@ LUCKYWHEEL.randomIndex = (prizes) => {
     }
     //Kiểm tra nếu ô đó còn quà hay ko
     if (prizes[prizeIndex].number != 0) {
-      $(".pie-item").eq(prizeIndex).addClass("active");
+      $(".pie").children().eq(prizeIndex).addClass("active");
       prizes[prizeIndex].number = prizes[prizeIndex].number - 1;
       return prizeIndex;
     } else {
@@ -249,6 +316,7 @@ LUCKYWHEEL.randomIndex = (prizes) => {
     }
     var rand = (Math.random() * prizes.length) >>> 0;
     if (prizes[rand].number != 0) {
+      $(".pie").children().eq(rand).addClass("active");
       prizes[rand].number = prizes[rand].number - 1;
       return rand;
     } else {

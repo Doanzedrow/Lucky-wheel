@@ -22,7 +22,7 @@ header .container .row .col {
   flex: 1;
 }
 header .container .row .col .nav {
-  display: flex;
+  display: none;
   position: relative;
   justify-content: end;
 }
@@ -38,8 +38,17 @@ header .container .row .col .nav li a {
   font-family: Pacifico;
   color: #000;
 }
+header .container .row .col .nav-bar {
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+}
+header .container .row .col .nav-bar img {
+  cursor: pointer;
+  width: 55px;
+}
 header .container .title {
-  margin: 30px 0;
+  margin: 25px 0;
   text-align: center;
   font-size: 1.5em;
   color: #fa273b;
@@ -48,7 +57,7 @@ header .container .title {
 
 section .container {
   margin: 0 150px;
-  background-image: url("../image/bg-2.jpg");
+  background-image: url(../image/bg-2.jpg);
   background-size: cover;
   border-radius: 20px;
   height: 76vh;
@@ -61,7 +70,7 @@ section .container .model-play {
   justify-content: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   height: 100%;
-  background-image: url("../image/bg_3.png");
+  background-image: url(../image/bg_3.png);
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -87,6 +96,9 @@ section .container .model-play .turn .turn-content {
   color: #fff;
   font-weight: 500;
   font-size: 1.9em;
+}
+section .container .model-play .image-mobile {
+  display: none;
 }
 section .container .model-play .rotation-lucky {
   position: relative;
@@ -347,18 +359,18 @@ section .container .model-play .time_play .time-content {
   top: 25%;
   font-size: 2.5em;
   color: #000;
-  font-weight: 500;
-  font-family: cursive;
+  font-weight: 400;
+  font-family: Pacifico;
 }
 .model .model-container .model_body .content_model {
   position: absolute;
   width: 100%;
   text-align: center;
-  top: 40%;
+  top: 35%;
   font-size: 6.5em;
   color: #000;
-  font-weight: 700;
-  font-family: cursive;
+  font-weight: 400;
+  font-family: Pacifico;
 }
 .model .model-container .model_active {
   width: 100%;
@@ -402,6 +414,421 @@ section .container .model-play .time_play .time-content {
     transform: rotate(1000deg);
   }
 }
+@media screen and (max-width: 600px) {
+  header .container {
+    margin: 10px 20px;
+  }
+  header .container .row {
+    display: flex;
+    align-items: baseline;
+  }
+  header .container .row .col {
+    flex: 1;
+  }
+  header .container .row .col .logo img {
+    width: 200px;
+  }
+  header .container .row .col .nav {
+    display: none;
+    position: relative;
+    justify-content: end;
+    flex-direction: column;
+    position: fixed;
+    top: 25px;
+    background: url(../image/bg_3.png);
+  }
+  header .container .row .col .nav li {
+    display: inline-block;
+    list-style: none;
+  }
+  header .container .row .col .nav li a {
+    text-decoration: none;
+    line-height: 36px;
+    padding: 0 24px;
+    display: block;
+    font-family: Pacifico;
+    color: #000;
+  }
+  header .container .row .col .nav-bar {
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+  }
+  header .container .row .col .nav-bar img {
+    cursor: pointer;
+    width: 55px;
+  }
+  header .container .title {
+    margin: 10px 0 20px 0;
+    text-align: center;
+    font-size: 1.5em;
+    color: #fa273b;
+    font-family: Quicksand;
+    font-weight: 700;
+  }
+  section .container {
+    margin: 0 25px;
+    background-size: cover;
+    height: 60vh;
+    border: 1px solid rgb(243, 235, 235);
+    background-size: cover;
+    background-position: 30% 50%;
+  }
+  section .container .model-play {
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+    border-radius: 1px solid rgb(243, 235, 235);
+  }
+  section .container .model-play .turn {
+    display: none;
+    align-items: center;
+    width: 60%;
+    padding: 30px 30px 30px 70px;
+    transform: translate(-125px, -20px);
+  }
+  section .container .model-play .turn img {
+    width: 30px;
+  }
+  section .container .model-play .turn .turn-content {
+    margin-left: 10px;
+    display: inline-flex;
+    flex: 1;
+    height: 32px;
+    background: #761b00;
+    border-radius: 40px;
+    border: 3.5px solid #ed8500;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+  section .container .model-play .rotation-lucky {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 10px;
+  }
+  section .container .model-play .rotation-lucky #spin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    position: absolute;
+    top: 35%;
+    transform: translateY(50%);
+    background-color: #fce25a;
+    text-transform: uppercase;
+    border: 5px solid #ec1c24;
+    font-weight: bold;
+    font-size: 20px;
+    width: 70px;
+    height: 70px;
+    font-family: Pacifico;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    letter-spacing: 1px;
+    z-index: 3;
+  }
+  section .container .model-play .rotation-lucky #spin img {
+    z-index: 3;
+  }
+  section .container .model-play .rotation-lucky .circle-border {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    background: url(../image/bg_cirle.png);
+    background-size: cover;
+    border-radius: 50%;
+    border: 7px solid #ffe87f;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  }
+  section .container .model-play .rotation-lucky .circle-border .circle-container {
+    position: relative;
+    width: 290px;
+    height: 290px;
+    border-radius: 50%;
+    top: 7%;
+    left: 7%;
+  }
+  section .container .model-play .rotation-lucky .circle-border .circle-container .circle {
+    position: absolute;
+    z-index: 1;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background-clip: padding-box;
+    background-color: #ffcb3f;
+    transition: transform 6s ease;
+  }
+  section .container .model-play .rotation-lucky .circle-border .circle-container .circle canvas {
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    border: 7px solid #fde78f;
+  }
+  section .container .model-play .rotation-lucky .circle-border .circle-container .circle .pie {
+    position: absolute;
+    left: 0;
+    top: -19px;
+    width: inherit;
+    height: inherit;
+    z-index: 2;
+  }
+  section .container .model-play .rotation-lucky .circle-border .circle-container .circle .pie .pie-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+    list-style: none;
+  }
+  section .container .model-play .rotation-lucky .circle-border .circle-container .circle .pie .pie-item span {
+    position: relative;
+    display: block;
+    padding-top: 20px;
+    margin: 0 auto;
+    text-align: center;
+    transform-origin: 50% 170px;
+  }
+  section .container .model-play .rotation-lucky .circle-border .circle-container .circle .pie .pie-item p {
+    position: relative;
+    top: 30px;
+    left: 38%;
+    width: 25%;
+    font-size: 10px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 5px 0;
+  }
+  section .container .model-play .rotation-lucky .circle-border .circle-container .circle .pie .pie-item img {
+    position: relative;
+    top: 30px;
+    left: 0px;
+    height: 50px;
+  }
+  section .container .model-play .rotation-lucky .circle-border::before {
+    content: "";
+    top: 7.5%;
+    position: absolute;
+    z-index: 5;
+    display: inline-block;
+    width: 35px;
+    height: 25px;
+    background: #ffeb91;
+    left: 45%;
+    -webkit-clip-path: polygon(100% 0%, 50% 100%, 0% 0%);
+            clip-path: polygon(100% 0%, 50% 100%, 0% 0%);
+  }
+  section .container .model-play .image-mobile {
+    display: flex;
+  }
+  section .container .model-play .image-mobile img {
+    width: 100%;
+  }
+  section .container .model-play .rules {
+    display: inline-block;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  section .container .model-play .rules p {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    text-align: start;
+    color: #000;
+    display: flex;
+    font-family: Quicksand;
+    font-weight: 500;
+  }
+  section .container .model-play .rules p strong {
+    font-family: Quicksand;
+    margin-right: 10px;
+  }
+  section .container .model-play .rules .start_game {
+    margin-top: unset;
+    display: inline-block;
+    transform: translateY(-15px);
+    padding: 10px 120px 10px 120px;
+    border-radius: 40px;
+    border: 8px solid #FFF;
+    background: linear-gradient(180deg, #FF5050 0.08%, #D30000 100%);
+    color: #fff;
+    font-size: 16px;
+    box-shadow: 2px -2px 10px 0px rgba(0, 0, 0, 0.3) inset;
+    cursor: pointer;
+    font-family: Quicksand;
+    text-transform: uppercase;
+  }
+  section .container .model-play .point {
+    display: none;
+    align-items: center;
+    width: 60%;
+    padding: 30px 70px 30px 30px;
+    transform: translate(125px, -475px);
+  }
+  section .container .model-play .point img {
+    width: 30px;
+  }
+  section .container .model-play .point .point-content {
+    margin-left: 10px;
+    display: inline-flex;
+    flex: 1;
+    height: 32px;
+    background: #761b00;
+    border-radius: 40px;
+    border: 3.5px solid #ed8500;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+  section .container .model-play .play {
+    display: none;
+    transform: translateY(-70px);
+    padding: 5px 150px 10px 150px;
+    border-radius: 40px;
+    border: 8px solid #fefefe;
+    color: #fff;
+    font-size: 1.2em;
+    background: linear-gradient(180deg, #FF5050 0.08%, #D30000 100%);
+    box-shadow: 2px -2px 10px 0px rgba(0, 0, 0, 0.3) inset;
+    cursor: pointer;
+    font-family: Quicksand;
+  }
+  section .container .model-play .time_play {
+    display: none;
+  }
+  section .container .model-play .time_play .time-header {
+    line-height: 46px;
+    padding: 0 24px;
+    display: block;
+    font-family: Quicksand;
+    font-weight: 700;
+    color: #222;
+    font-size: 24px;
+    font-style: normal;
+    transform: translateY(138px);
+  }
+  section .container .model-play .time_play .time-content {
+    font-family: Pacifico;
+    font-weight: 500;
+    font-size: 13em;
+  }
+  .active-icon {
+    position: absolute;
+    left: 88%;
+    top: 83%;
+  }
+  .active-icon img {
+    cursor: pointer;
+    display: block;
+    margin-bottom: 10px;
+    width: 40px;
+    height: 40px;
+  }
+  .model {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+    display: none;
+    z-index: 7;
+    transform: translateX(-11px);
+  }
+  .model .model-container {
+    position: relative;
+    background: #fff;
+    width: 400px;
+    max-width: unset;
+    min-height: 400px;
+    border-radius: 15px;
+    z-index: 8;
+    background: url(/assets/image/Rectangle.png);
+  }
+  .model .model-container .model-header #icon_start {
+    position: absolute;
+    width: 60%;
+    top: -10%;
+    left: 20%;
+  }
+  .model .model-container .model-header #icon_exit {
+    display: none;
+    position: absolute;
+    left: 87%;
+    top: 4%;
+    cursor: pointer;
+  }
+  .model .model-container .model_body .title_model {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 25%;
+    font-size: 25px;
+    color: #000;
+    font-weight: 700;
+    font-family: Quicksand;
+  }
+  .model .model-container .model_body .content_model {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 25%;
+    font-size: 6.5em;
+    color: #000;
+    font-weight: 700;
+    font-family: Pacifico;
+  }
+  .model .model-container .model_active {
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    left: 7.5%;
+    top: 65%;
+  }
+  .model .model-container .model_active .login_model {
+    width: 345px;
+    padding: 7px;
+    border-radius: 40px;
+    border: 8px solid #fefefe;
+    background: linear-gradient(180deg, #FF5050 0.08%, #D30000 100%);
+    box-shadow: 2px -2px 10px 0px rgba(0, 0, 0, 0.3) inset;
+    color: #fff;
+    font-size: 1.1em;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .model .model-container .model_active .score {
+    width: 345px;
+    padding: 7px;
+    border-radius: 40px;
+    border: 8px solid #fefefe;
+    background: linear-gradient(180deg, #FF5050 0.08%, #D30000 100%);
+    box-shadow: 2px -2px 10px 0px rgba(0, 0, 0, 0.3) inset;
+    color: #fff;
+    font-size: 1.1em;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-left: 0px;
+  }
+}
 .container .rules-content {
   display: flex;
   flex-direction: column;
@@ -423,6 +850,31 @@ section .container .model-play .time_play .time-content {
   margin-right: 10px;
 }
 
+@media screen and (max-width: 600px) {
+  .container .model-play {
+    overflow: auto;
+  }
+  .container .model-play .rules-content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 30px;
+  }
+  .container .model-play .rules-content p {
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: start;
+    color: #222222;
+    display: flex;
+    font-family: Quicksand, sans-serif;
+  }
+  .container .model-play .rules-content p strong {
+    font-family: cursive;
+    margin-right: 10px;
+  }
+}
 .container .awardlist {
   display: flex;
   flex-direction: column;
@@ -471,6 +923,58 @@ section .container .model-play .time_play .time-content {
   margin-right: 10px;
 }
 
+@media screen and (max-width: 600px) {
+  .container .awardlist {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 20px;
+  }
+  .container .awardlist .awardlist-header p {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    text-align: start;
+    color: #000;
+    display: flex;
+    font-weight: 500;
+    font-family: Quicksand;
+  }
+  .container .awardlist .awardlist-header p strong {
+    font-family: cursive;
+    margin-right: 10px;
+  }
+  .container .awardlist .awardlist-content {
+    width: 100%;
+    display: inline-block;
+  }
+  .container .awardlist .awardlist-content .awardlist-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container .awardlist .awardlist-content .awardlist-image img {
+    flex: 1;
+    width: 95px;
+    margin: 0 10px;
+  }
+  .container .awardlist .awardlist-footer {
+    margin-top: 20px;
+  }
+  .container .awardlist .awardlist-footer p {
+    font-weight: 500;
+    font-size: 1.1em;
+    text-align: start;
+    color: #000;
+    display: flex;
+    font-family: Quicksand;
+  }
+  .container .awardlist .awardlist-footer p strong {
+    font-family: cursive;
+    margin-right: 10px;
+  }
+}
 .container table {
   margin: 0 50px;
   border-collapse: collapse;
@@ -505,4 +1009,51 @@ section .container .model-play .time_play .time-content {
 }
 .container table td img {
   width: 35px;
+}
+
+@media screen and (max-width: 600px) {
+  .container table {
+    margin: 25px 0 0 20px;
+    border-collapse: collapse;
+    width: 90%;
+    box-shadow: 0px 0px 1px 1px #979797 inset, 0px 0px 0px 0px #979797 inset;
+  }
+  .container table th,
+  .container table td {
+    box-shadow: 0px 0px 1px 1px #979797 inset, 0px 0px 0px 0px #979797 inset;
+    height: 44px;
+  }
+  .container table th,
+  .container table td {
+    text-align: center;
+  }
+  .container table .email,
+  .container table .phone {
+    display: none;
+  }
+  .container table th {
+    color: #000;
+    font-family: Quicksand;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+  }
+  .container table .name,
+  .container table .diem {
+    text-align: start;
+    padding-left: 15px;
+  }
+  .container table td {
+    color: #222;
+    text-align: center;
+    font-family: Quicksand;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+  }
+  .container table td img {
+    width: 35px;
+  }
 }/*# sourceMappingURL=index.css.map */

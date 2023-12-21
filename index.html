@@ -1,138 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="content-language" content="vi" />
-    <link
-      rel="shortcut icon"
-      href="./assets/image/icon_gift.png"
-      type="image/x-icon"
-    />
-    <meta id="metaDes" name="description" content="Trang vòng quay may mắn" />
-    <title>Vòng quay may mắn</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&family=Quicksand:wght@500&display=swap"
-      rel="stylesheet"
-    />
 
-    <link rel="stylesheet" href="./assets/scss/index.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="content-language" content="vi" />
+  <link rel="shortcut icon" href="./assets/image/icon_gift.png" type="image/x-icon" />
+  <meta id="metaDes" name="description" content="Trang vòng quay may mắn" />
+  <title>Vòng quay may mắn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&family=Quicksand:wght@500&display=swap"
+    rel="stylesheet" />
 
-  <body>
-    <header>
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class="logo">
-              <img src="./assets/image/logo.png" alt="logo" />
-            </div>
-          </div>
-          <div class="col">
-            <div class="nav">
-              <li><a href="index.html">Chơi game</a></li>
-              <li><a href="rules.html">Thể lệ</a></li>
-              <li><a href="awardlist.html">Danh sách phần thưởng</a></li>
-              <li><a href="ratings.html">Xếp hạng</a></li>
-            </div>
+  <link rel="stylesheet" href="./assets/scss/index.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="logo">
+            <img src="./assets/image/logo.png" alt="logo" />
           </div>
         </div>
-        <div class="title">Chơi game</div>
-      </div>
-    </header>
-
-    <section>
-      <div class="container">
-        <div class="model-play">
-          <!-- Hiển thị số lượt -->
-          <div class="turn">
-            <img src="./assets/image/icon_turn.png" alt="" />
-            <div class="turn-content">x0</div>
+        <div class="col">
+          <div class="nav-bar">
+            <img id="btn-bar" src="assets/image/icon_bar.png" alt="">
           </div>
-          <!-- vòng quay -->
-          <div class="rotation-lucky">
-            <button id="spin">
-              <img src="./assets/image/spin.png" alt="" />
-            </button>
-            <div class="circle-border">
-              <div class="circle-container">
-                <div class="circle">
-                  <canvas
-                    class="hc-luckywheel-canvas"
-                    width="500px"
-                    height="500px"
-                    >Vòng Xoay May Mắn</canvas
-                  >
-                </div>
+          <div class="nav">
+            <li><a href="index.html">Chơi game</a></li>
+            <li><a href="rules.html">Thể lệ</a></li>
+            <li><a href="awardlist.html">Danh sách phần thưởng</a></li>
+            <li><a href="ratings.html">Xếp hạng</a></li>
+          </div>
+        </div>
+      </div>
+      <div class="title">Chơi game</div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container container-model-play">
+      <div class="model-play">
+        <!-- Hiển thị số lượt -->
+        <div class="turn">
+          <img src="./assets/image/icon_turn.png" alt="" />
+          <div class="turn-content">x0</div>
+        </div>
+        <!-- vòng quay -->
+        <div class="rotation-lucky">
+          <button id="spin">
+            <img src="./assets/image/spin.png" alt="" />
+          </button>
+          <div class="circle-border">
+            <div class="circle-container">
+              <div class="circle">
+                <canvas class="hc-luckywheel-canvas" width="500px" height="500px">Vòng Xoay May Mắn</canvas>
               </div>
             </div>
           </div>
-
-          <!-- Điểm -->
-          <div class="point">
-            <img src="./assets/image/icon_point.png" alt="" />
-            <div class="point-content">0</div>
-          </div>
-          <!-- Thể lệ chơi -->
-          <div class="rules">
-            <p><strong>01.</strong> Bấm nút quay để bắt đầu chơi</p>
-            <p>
-              <strong>02.</strong> Mỗi người chơi sẽ có 5 lượt quay, sau mỗi
-              lượt quay số điểm hoặc phần thưởng sẽ được thêm vào tài khoản của
-              người chơi
-            </p>
-            <p>
-              <strong>03.</strong> Dùng số điểm của bạn để đổi lấy phần thưởng
-            </p>
-            <button class="start_game">Bắt đầu chơi</button>
-          </div>
-
-          <!-- Nút quay -->
-          <button class="play">Quay</button>
-
-          <!-- countdown -->
-          <div class="time_play">
-            <div class="time-header">Trò chơi bắt đầu sau</div>
-            <div class="time-content">3</div>
-          </div>
         </div>
-      </div>
-    </section>
-    <div class="active-icon">
-      <img id="music" src="./assets/image/icon_music_on.png" alt="" />
-      <img id="volume" src="./assets/image/icon_volum_on.png" alt="" />
-      <img id="pause" src="./assets/image/icon_play.png" alt="" />
-    </div>
-    <div class="model">
-      <div class="model-container">
-        <div class="model-header">
-          <img id="icon_start" src="/assets/image/icon_start.png" alt="" />
-          <img id="icon_exit" src="/assets/image/icon_exit.png" alt="" />
+
+        <div class="image-mobile">
+          <img src="assets/image/bg-mobile.png" alt="">
         </div>
-        <div class="model_body">
-          <div class="title_model"></div>
-          <div class="content_model"></div>
+        <!-- Điểm -->
+        <div class="point">
+          <img src="./assets/image/icon_point.png" alt="" />
+          <div class="point-content">0</div>
         </div>
-        <div class="model_active">
-          <button class="login_model">Đăng nhập</button>
-          <button class="score">Tính điểm</button>
+        <!-- Thể lệ chơi -->
+        <div class="rules">
+          <p><strong>01.</strong> Bấm nút "Quay" để bắt đầu chơi</p>
+          <p>
+            <strong>02.</strong> Mỗi người chơi sẽ có 5 lượt quay, sau mỗi
+            lượt quay số điểm hoặc phần thưởng sẽ được thêm vào tài khoản của
+            người chơi
+          </p>
+          <p>
+            <strong>03.</strong> Dùng số điểm của bạn để đổi lấy phần thưởng
+          </p>
+          <button class="start_game">Bắt đầu chơi</button>
+        </div>
+
+        <!-- Nút quay -->
+        <button class="play">Quay</button>
+
+        <!-- countdown -->
+        <div class="time_play">
+          <div class="time-header">Trò chơi bắt đầu sau</div>
+          <div class="time-content">3</div>
         </div>
       </div>
     </div>
+  </section>
+  <div class="active-icon">
+    <img id="music" src="./assets/image/icon_music_on.png" alt="" />
+    <img id="volume" src="./assets/image/icon_volum_on.png" alt="" />
+    <img id="pause" src="./assets/image/icon_play.png" alt="" />
+  </div>
+  <div class="model">
+    <div class="model-container">
+      <div class="model-header">
+        <img id="icon_start" src="/assets/image/icon_start.png" alt="" />
+        <img id="icon_exit" src="/assets/image/icon_exit.png" alt="" />
+      </div>
+      <div class="model_body">
+        <div class="title_model"></div>
+        <div class="content_model"><strong>X</strong></div>
+      </div>
+      <div class="model_active">
+        <button class="login_model">Đăng nhập</button>
+        <button class="score">Tính điểm</button>
+      </div>
+    </div>
+  </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/howler@2.2.3/dist/howler.min.js"></script>
-    <script src="assets/js/index.js"></script>
-  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/howler@2.2.3/dist/howler.min.js"></script>
+  <script src="assets/js/index.js"></script>
+</body>
+
 </html>
